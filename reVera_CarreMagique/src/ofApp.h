@@ -29,10 +29,12 @@ class ofApp : public ofBaseApp{
     float corner_angle_prev;
     float l1_angle_pos;
     float l2_angle_pos;
+    int seed_val;
     
     ofFbo fbo;
     ofImage img;
+    ofEasyCam cam;
     
-    vector <ofVec2f> centers;
+    vector <ofVec3f> centers;
 		
 };
