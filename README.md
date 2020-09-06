@@ -26,11 +26,34 @@ Original            |  Recreation
 
 #### Process
 
+To start with I utilized a simple path of lines and a random function to determine the location of each node. Due to limitation in line thickness however I moved to an approach using a vector of points and then drawing rectangles between the start and end of each point. The issues here however is that the boundaries between rectangles are tricky and the position of the rectangle corners are not obvious. I began with vertical offsets before moving onto angle calculations.
+
+Finally to create the effect of the line diminishing in size through time i added a Z index and draw in 3 dimensions which with a 3D perspective gives the illusion of the line getting thinner. I did this to avoid adding even more complexity in sizing and positioning the rectangle corners.
+
+![Basic Lines](reVera_CarreMagique/bin/data/reVera_basiclines.png)
+
+![Vertical offset Rectanges](reVera_CarreMagique/bin/data/reVera_verticals.png)
+
+![Failed attempt at calculating the geometry](reVera_CarreMagique/bin/data/reVera_broken_geometry.png)
+
+![Final effect with 3D perspective](reVera_CarreMagique/bin/data/reVera_CarreMagnique_animated.gif)
 
 
 
 
 ## Vera Molnar - Untitled Squares
 
-Secondly I chose to 
+Secondly I chose to recreate a much older untitled piece. When i looked at this work i saw an accumulation from left to right where the noise and variation is ramped up across the image. In order to capture this effect i decided to animate and therefore draw each line individually rather than as squares (looking back probably a mistaken from a simplicity perspective!).
+
+In the end the effect doesn't quite capture the same sense of noise as the original and the style of noise is also different. The recreation has a sense of wandering away from the center point which doesn't exist in the original.
+
+Original            |  Recreation
+:-------------------------:|:-------------------------:
+![](reVera_Squares/bin/data/vera_squares_orig.jpg)  |  ![](reVera_Squares/bin/data/reVera_sq3.png)
+
+In animated form this looks like:
+
+![](reVera_Squares/bin/data/reVera_Squares_animated.gif)
+
+
 
