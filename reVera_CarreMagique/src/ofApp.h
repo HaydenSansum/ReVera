@@ -27,6 +27,8 @@ class ofApp : public ofBaseApp{
     int width;
     float corner_angle_next;
     float corner_angle_prev;
+    float l1_angle_pos;
+    float l2_angle_pos;
     
     ofFbo fbo;
     ofImage img;

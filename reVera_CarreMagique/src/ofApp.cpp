@@ -6,10 +6,23 @@
 float ofApp::calcAngle(ofVec2f A, ofVec2f B, ofVec2f C){
     
     // Test angles
-    ofVec2f first_line = B - A;
+    ofVec2f first_line = A - B;
     ofVec2f second_line = C - B;
-    float l1_angle = atan2(first_line.x, first_line.y) - (PI/2);
-    float l2_angle = atan2(second_line.x, second_line.y)-(PI/2);
+    float l1_angle = atan2(first_line.y, first_line.x);
+    float l2_angle = atan2(second_line.y, second_line.x);
+    
+    // Convert angles to be positive only
+    if (l1_angle < 0) {
+        l1_angle_pos = PI + l1_angle;
+    } else {
+        l1_angle_pos = l1_angle;
+    }
+    
+    if (l2_angle < 0) {
+        l2_angle_pos = PI + l2_angle;
+    } else {
+        l2_angle_pos = l2_angle;
+    }
     
     // Calculate the halfway angle
     float final_angle = ((l1_angle + l2_angle) / 2) + PI;
@@ -30,9 +43,33 @@ void ofApp::setup(){
     fbo.allocate(700,700);
     
     // Initialize angles
-    corner_angle_prev = PI/2;
-    corner_angle_next = PI/2;
+    corner_angle_prev = 0;
+    corner_angle_next = 0;
 
+    
+    // Test Angles
+    ofVec2f first_line = ofVec2f(0,0) - ofVec2f(100,0);
+    ofVec2f second_line = ofVec2f(200,100) - ofVec2f(100,0);
+    
+    float l1_angle = atan2(first_line.y, first_line.x);
+    float l2_angle = atan2(second_line.y, second_line.x);
+    
+    // Convert angles to be positive only
+    if (l1_angle < 0) {
+        l1_angle_pos = PI + l1_angle;
+    } else {
+        l1_angle_pos = l1_angle;
+    }
+    
+    if (l2_angle < 0) {
+        l2_angle_pos = PI + l2_angle;
+    } else {
+        l2_angle_pos = l2_angle;
+    }
+    
+    // Calculate the halfway angle
+    float final_angle = ((l1_angle + l2_angle) / 2);
+    cout << final_angle << endl;
 }
 
 //--------------------------------------------------------------
@@ -63,6 +100,13 @@ void ofApp::draw(){
     }
     centers.push_back(ofVec2f(700, 200));// Create the final exit point
 
+//    // TEMP CODE
+//    centers.clear();
+//    centers.push_back(ofVec2f(0, 400)); // Create the starting vertex
+//    centers.push_back(ofVec2f(200, 400));
+//    centers.push_back(ofVec2f(200, -400));
+//    centers.push_back(ofVec2f(400, -400));
+    
     // For each pair of points (except final point) - draw a rectangle
     for (int i = 0; i < centers.size()-2; i++) {
         ofVec2f cur_point = centers[i];
@@ -73,10 +117,10 @@ void ofApp::draw(){
         
         // For simplicity just add on in the vertical direction
         float h_width = width/2;
-        ofVec2f vertex_1 = cur_point + ofVec2f(-cos(corner_angle_prev)*h_width, -sin(corner_angle_prev)*h_width);
-        ofVec2f vertex_2 = next_point + ofVec2f(-cos(corner_angle_next)*h_width, -sin(corner_angle_next)*h_width);
-        ofVec2f vertex_3 = next_point + ofVec2f(cos(corner_angle_prev)*h_width, sin(corner_angle_prev)*h_width);
-        ofVec2f vertex_4 = cur_point + ofVec2f(cos(corner_angle_next)*h_width, sin(corner_angle_next)*h_width);
+        ofVec2f vertex_1 = cur_point + ofVec2f(-sin(corner_angle_prev)*h_width, -cos(corner_angle_prev)*h_width);
+        ofVec2f vertex_2 = next_point + ofVec2f(-sin(corner_angle_next)*h_width, -cos(corner_angle_next)*h_width);
+        ofVec2f vertex_3 = next_point + ofVec2f(sin(corner_angle_next)*h_width, cos(corner_angle_next)*h_width);
+        ofVec2f vertex_4 = cur_point + ofVec2f(sin(corner_angle_prev)*h_width, cos(corner_angle_prev)*h_width);
         
         ofBeginShape();
         ofVertex(vertex_1);
