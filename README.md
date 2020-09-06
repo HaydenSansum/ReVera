@@ -22,7 +22,7 @@ Here is the original and final recreation side by side:
 
 Original            |  Recreation
 :-------------------------:|:-------------------------:
-![](reVera_CarreMagique/bin/data/vera_molnar_original.jpg)  |  ![](reVera_CarreMagique/bin/data/reVera_final.png)
+<img src="reVera_CarreMagique/bin/data/vera-molnar-carre-magique-a-la-bande-pliee-a-a.jpg" width=400 height=300> |  <img src="reVera_CarreMagique/bin/data/reVera_final.png" width=400 height=280> 
 
 #### Process
 
@@ -30,14 +30,10 @@ To start with I utilized a simple path of lines and a random function to determi
 
 Finally to create the effect of the line diminishing in size through time i added a Z index and draw in 3 dimensions which with a 3D perspective gives the illusion of the line getting thinner. I did this to avoid adding even more complexity in sizing and positioning the rectangle corners.
 
-![Basic Lines](reVera_CarreMagique/bin/data/reVera_basiclines.png)
-
-![Vertical offset Rectanges](reVera_CarreMagique/bin/data/reVera_verticals.png)
-
-![Failed attempt at calculating the geometry](reVera_CarreMagique/bin/data/reVera_broken_geometry.png)
-
-![Final effect with 3D perspective](reVera_CarreMagique/bin/data/reVera_CarreMagnique_animated.gif)
-
+<img src="reVera_CarreMagique/bin/data/reVera_basiclines.png" width=400 height=400>
+<img src="reVera_CarreMagique/bin/data/reVera_verticals.png" width=400 height=400>
+<img src="reVera_CarreMagique/bin/data/reVera_broken_geometry.png" width=400 height=400>
+<img src="reVera_CarreMagique/bin/data/reVera_CarreMagique_animated.gif" width=400 height=400>
 
 
 
